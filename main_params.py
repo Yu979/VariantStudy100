@@ -27,7 +27,7 @@ class MainParams:
         self.species = ["hg38", "mm10", "macFas5", "calJac4", "rheMac8", "canFam3", "oviAri4", "rn6"]
         # self.species = ["hg38"]
         self.script_folder = pathlib.Path(__file__).parent.resolve()
-        folders = open(str(self.script_folder) + "/../data_dirs").read().strip().split("\n")
+        folders = open(str(self.script_folder) + "/data_dirs").read().strip().split("\n")
         self.data_folder = folders[0]
         os.chdir(self.data_folder)
         self.parsed_tracks_folder = folders[1]

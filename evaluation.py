@@ -65,8 +65,8 @@ def eval_perf(p, our_model, head, eval_infos, should_draw, current_epoch, label,
 
     start_val = {}
     track_inds_bed = []
-    meta = pd.read_csv("data/ML_all_track.metadata.2022053017.tsv", sep="\t")
-    cor_tracks = pd.read_csv("data/fantom_tracks.tsv", sep="\t", header=None).iloc[:, 0].tolist()
+    meta = pd.read_csv("/data2/qinze/geneExpression/media/user/PASSPORT1/variants_100/data/ML_all_track.metadata.2022053017.tsv", sep="\t")
+    cor_tracks = pd.read_csv("/data2/qinze/geneExpression/media/user/PASSPORT1/variants_100/data/fantom_tracks.tsv", sep="\t", header=None).iloc[:, 0].tolist()
     print(f"Number of correlation tracks: {len(cor_tracks)}")
     track_types = {}
     for track in eval_track_names:

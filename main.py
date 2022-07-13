@@ -405,7 +405,7 @@ if __name__ == '__main__':
     loss_weights = {}
     learning_rates = {}
     weight_decays = {}
-    with open(str(p.script_folder) + "/../loss_weights") as f:
+    with open(str(p.script_folder) + "/loss_weights") as f:
         for line in f:
             (key, weight, lr, wd) = line.split()
             if hic_num == 0 and key == "our_hic":

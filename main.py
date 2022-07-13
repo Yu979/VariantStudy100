@@ -371,7 +371,7 @@ if __name__ == '__main__':
         for specie in p.species:
             shuffled_tracks = random.sample(track_names_col[specie], len(track_names_col[specie]))
             if specie == "hg38":
-                meta = pd.read_csv("data/ML_all_track.metadata.2022053017.tsv", sep="\t")
+                meta = pd.read_csv("/data2/qinze/geneExpression/media/user/PASSPORT1/variants_100/data/ML_all_track.metadata.2022053017.tsv", sep="\t")
                 new_head = {"expression": [x for x in shuffled_tracks if
                                            meta.loc[meta['file_name'] == x].iloc[0]["technology"].startswith(
                                                ("CAGE", "RAMPAGE", "NETCAGE"))],
@@ -393,7 +393,7 @@ if __name__ == '__main__':
         else:
             print(f"Number of tracks in head {head_key}: {len(heads[head_key])}")
 
-    hic_keys = pd.read_csv("data/good_hic.tsv", sep="\t", header=None).iloc[:, 0]
+    hic_keys = pd.read_csv("/data2/qinze/geneExpression/media/user/PASSPORT1/variants_100/data/good_hic.tsv", sep="\t", header=None).iloc[:, 0]
     # hic_keys = []
     hic_num = len(hic_keys)
     print(f"hic {hic_num}")

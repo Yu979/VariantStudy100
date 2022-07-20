@@ -26,8 +26,8 @@ from main_params import MainParams
 from scipy.ndimage import gaussian_filter
 import cooler
 
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
-logging.getLogger("tensorflow").setLevel(logging.ERROR)
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+# logging.getLogger("tensorflow").setLevel(logging.ERROR)
 matplotlib.use("agg")
 
 

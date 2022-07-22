@@ -434,8 +434,8 @@ if __name__ == '__main__':
                                                           learning_rate=learning_rates["our_conservation"],
                                                           weight_decay=weight_decays["our_conservation"],
                                                           clipnorm=0.001)
-    optimizers["our_hic"] = tfa.optimizers.AdamW(beta_1=0.95, beta_2=0.9995, learning_rate=learning_rates["our_hic"],
-                                                 weight_decay=weight_decays["our_hic"], clipnorm=0.001)
+    # optimizers["our_hic"] = tfa.optimizers.AdamW(beta_1=0.95, beta_2=0.9995, learning_rate=learning_rates["our_hic"],
+    #                                              weight_decay=weight_decays["our_hic"], clipnorm=0.001)
 
     # load_old_weights()
     # exit()

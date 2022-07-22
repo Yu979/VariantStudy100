@@ -401,7 +401,7 @@ if __name__ == '__main__':
 
     hic_keys = pd.read_csv("/data2/qinze/geneExpression/media/user/PASSPORT1/variants_100/data/good_hic.tsv", sep="\t", header=None).iloc[:, 0]
     # hic_keys = []
-    hic_num = len(hic_keys)
+    hic_num = 0
     print(f"hic {hic_num}")
 
     # import model as mo

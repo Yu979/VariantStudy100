@@ -1,5 +1,5 @@
 our_resnet 1.0 0.00001 0.00001
-our_expression 100.0 0.0001 0.0001
+our_expression 80.0 0.0001 0.0001
 our_epigenome 10.0 0.0001 0.0001
 our_conservation 2.0 0.0001 0.0001
-our_hic 100 0.0001 0.0001
+our_hic 100 0.0001 0.00001

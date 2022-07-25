@@ -122,12 +122,13 @@ def make_model_and_train(heads, input_sequences, all_outputs, fit_epochs, hic_nu
     import tensorflow_addons as tfa
     import model as mo
     try:
-        train_data = mo.wrap_for_human_training(input_sequences, all_outputs, p.GLOBAL_BATCH_SIZE)
-        del input_sequences
-        del all_outputs
+
         # gc.collect()
         strategy = tf.distribute.MultiWorkerMirroredStrategy()
         with strategy.scope():
+            train_data = mo.wrap_for_human_training(input_sequences, all_outputs, p.GLOBAL_BATCH_SIZE)
+            del input_sequences
+            del all_outputs
             our_model = mo.make_model(p.input_size, p.num_features, p.num_bins, hic_num, p.hic_size, heads)
             optimizers_and_layers = [(optimizers["our_resnet"], our_model.get_layer("our_resnet")),
                                      (optimizers["our_expression"], our_model.get_layer("our_expression"))]

@@ -142,9 +142,9 @@ def wrap(input_sequences, output_scores, bs):
     with tf.device('cpu:0'):
         train_data = tf.data.Dataset.from_tensor_slices((input_sequences, output_scores))
         train_data = train_data.batch(bs)
-        options = tf.data.Options()
-        options.experimental_distribute.auto_shard_policy = tf.data.experimental.AutoShardPolicy.DATA
-        train_data = train_data.with_options(options)
+        # options = tf.data.Options()
+        # options.experimental_distribute.auto_shard_policy = tf.data.experimental.AutoShardPolicy.DATA
+        # train_data = train_data.with_options(options)
         return train_data
 
 

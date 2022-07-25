@@ -68,7 +68,7 @@ def get_data_and_train(last_proc, fit_epochs):
     half = len(input_sequences) // 2
     # loading corresponding 2D data
     output_hic = parser.par_load_hic_data(hic_keys, p, picked_regions, half)
-    gc.collect()
+    # gc.collect()
     print_memory()
     input_sequences = np.asarray(input_sequences, dtype=bool)
 
@@ -92,7 +92,7 @@ def get_data_and_train(last_proc, fit_epochs):
     input_sequences = input_sequences[:, :, :-1]
     print(input_sequences.shape)
 
-    gc.collect()
+    # gc.collect()
     print_memory()
     for name, size in sorted(((name, sys.getsizeof(value)) for name, value in locals().items()),
                              key=lambda x: -x[1])[:10]:
@@ -125,7 +125,7 @@ def make_model_and_train(heads, input_sequences, all_outputs, fit_epochs, hic_nu
         train_data = mo.wrap_for_human_training(input_sequences, all_outputs, p.GLOBAL_BATCH_SIZE)
         del input_sequences
         del all_outputs
-        gc.collect()
+        # gc.collect()
         strategy = tf.distribute.MultiWorkerMirroredStrategy()
         with strategy.scope():
             our_model = mo.make_model(p.input_size, p.num_features, p.num_bins, hic_num, p.hic_size, heads)
@@ -193,7 +193,7 @@ def make_model_and_train(heads, input_sequences, all_outputs, fit_epochs, hic_nu
     try:
         our_model.fit(train_data, epochs=fit_epochs, batch_size=p.GLOBAL_BATCH_SIZE)
         del train_data
-        gc.collect()
+        # gc.collect()
         safe_save(our_model.get_layer("our_resnet").get_weights(), p.model_path + "_res")
         safe_save(optimizers["our_resnet"].get_weights(), p.model_path + "_opt_resnet")
         safe_save(our_model.get_layer("our_expression").get_weights(), p.model_path + "_expression")

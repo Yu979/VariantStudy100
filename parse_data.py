@@ -39,7 +39,7 @@ def parse_hic(p):
 
 
 def parse_tracks(p):
-    meta = pd.read_csv("data/ML_all_track.metadata.2022053017.tsv", sep="\t")
+    meta = pd.read_csv("/data2/qinze/geneExpression/media/user/PASSPORT1/variants_100/data/ML_all_track.metadata.2022053017.tsv", sep="\t")
     if Path(f"{p.pickle_folder}track_names.gz").is_file():
         track_names = joblib.load(f"{p.pickle_folder}track_names.gz")
     else:
@@ -151,10 +151,10 @@ def parse_sequences(p):
         valid_info = joblib.load(f"{p.pickle_folder}valid_info.gz")
         protein_coding = joblib.load(f"{p.pickle_folder}protein_coding.gz")
     else:
-        gene_info = pd.read_csv("data/old_gene.info.tsv", sep="\t", index_col=False)
-        train_tss = pd.read_csv("data/final_train_tss.bed", sep="\t", index_col=False, names=["chrom", "start", "end", "geneID", "score", "strand"])
-        test_tss = pd.read_csv("data/final_test_tss.bed", sep="\t", index_col=False, names=["chrom", "start", "end", "geneID", "score", "strand"])
-        valid_tss = pd.read_csv("data/final_valid_tss.bed", sep="\t", index_col=False, names=["chrom", "start", "end", "geneID", "score", "strand"])
+        gene_info = pd.read_csv("/data2/qinze/geneExpression/media/user/PASSPORT1/variants_100/data/old_gene.info.tsv", sep="\t", index_col=False)
+        train_tss = pd.read_csv("/data2/qinze/geneExpression/media/user/PASSPORT1/variants_100/data/final_train_tss.bed", sep="\t", index_col=False, names=["chrom", "start", "end", "geneID", "score", "strand"])
+        test_tss = pd.read_csv("/data2/qinze/geneExpression/media/user/PASSPORT1/variants_100/data/final_test_tss.bed", sep="\t", index_col=False, names=["chrom", "start", "end", "geneID", "score", "strand"])
+        valid_tss = pd.read_csv("/data2/qinze/geneExpression/media/user/PASSPORT1/variants_100/data/final_valid_tss.bed", sep="\t", index_col=False, names=["chrom", "start", "end", "geneID", "score", "strand"])
         protein_coding = []
         valid_info = []
         for index, row in valid_tss.iterrows():
